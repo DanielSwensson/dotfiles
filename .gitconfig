@@ -8,6 +8,6 @@
 [init]
 	templatedir = ~/.git_template
 [core]
-	excludesfile = /Users/danielswensson/.gitignore
+	excludesfile = ~/.gitignore
 [alias]
 	ctags = !.git/hooks/ctags
