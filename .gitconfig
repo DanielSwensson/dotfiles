@@ -1,0 +1,13 @@
+[user]
+	name = Daniel Swensson
+	email = daniel.swensson@hemnet.se
+[push]
+	default = current
+[commit]
+	gpgsign = true
+[init]
+	templatedir = ~/.git_template
+[core]
+	excludesfile = /Users/danielswensson/.gitignore
+[alias]
+	ctags = !.git/hooks/ctags
