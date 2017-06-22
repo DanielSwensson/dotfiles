@@ -1,1 +1,0 @@
-/Users/danielswensson/.zprezto/runcoms/zshenv
