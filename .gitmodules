@@ -37,3 +37,7 @@
 [submodule ".vim/plugged/vim-ruby"]
 	path = .vim/plugged/vim-ruby 
 	url = git@github.com:vim-ruby/vim-ruby.git 
+
+[submodule ".zprezto"]
+	path = .zprezto 
+	url = git@github.com:DanielSwensson/prezto.git 
