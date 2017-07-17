@@ -11,7 +11,7 @@ set backspace=indent,eol,start
 set nocompatible
 set laststatus=2
 set encoding=utf-8
-
+set clipboard+=unnamed
 call plug#begin('~/.vim/plugged')
 
 Plug 'w0rp/ale'
@@ -25,6 +25,7 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-ruby/vim-ruby'
+Plug 'elixir-lang/vim-elixir'
 
 call plug#end()
 
@@ -38,10 +39,6 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
-autocmd FileType html setl sw=2 sts=2 et
-autocmd FileType ruby set sw=2 sts=2 et
-autocmd FileType eruby setl sw=2 sts=2 et
-autocmd FileType javascript setl sw=2 sts=2 et
-autocmd FileType scss setl sw=2 sts=2 et
+autocmd FileType ruby,erlang,eruby,javascript,scss,html set sw=2 sts=2 et
 map <C-p> :Files<cr>
 nmap <C-p> :Files<cr>
