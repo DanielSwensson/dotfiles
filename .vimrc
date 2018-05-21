@@ -38,6 +38,7 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+nnoremap <leader>b f,2lXi<CR><Esc>
 
 autocmd FileType ruby,erlang,eruby,javascript,scss,html set sw=2 sts=2 et
 map <C-p> :Files<cr>
