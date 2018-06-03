@@ -5,6 +5,7 @@ set tabstop=2
 set nowrap
 syntax enable
 set background=dark
+let g:solarized_termtrans = 1
 colorscheme solarized
 set mouse=a
 set backspace=indent,eol,start
@@ -26,6 +27,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'elixir-lang/vim-elixir'
+Plug 'leshill/vim-json'
 
 call plug#end()
 
