@@ -1,8 +1,6 @@
 [user]
 	name = Daniel Swensson
-	email = daniel.swensson@hemnet.se
-[includeIf "gitdir:~/Developer/danielswensson/"]
-	path = ~/Developer/danielswensson/.gitconfig
+	email = daniel@danielswensson.se
 [push]
 	default = current
 [commit]
