@@ -25,6 +25,7 @@ Plug 'mxw/vim-jsx'
 Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug '/usr/local/opt/fzf'
 Plug 'vim-ruby/vim-ruby'
 Plug 'elixir-lang/vim-elixir'
 Plug 'leshill/vim-json'
