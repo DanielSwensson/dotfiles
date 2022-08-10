@@ -15,26 +15,28 @@ set encoding=utf-8
 set clipboard+=unnamed
 set number
 set relativenumber
-set macligatures
 set guifont=Fira\ Code:h12
+set autoread
 let mapleader=","
 
-call plug#begin('~/.vim/plugged')
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+call plug#begin()
 
 Plug 'dense-analysis/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
 Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'leshill/vim-json'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'leafgarland/typescript-vim' " TypeScript syntax
+Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'morhetz/gruvbox'
+Plug 'github/copilot.vim'
 
 call plug#end()
 
@@ -48,7 +50,7 @@ map <C-p> :GFiles<cr>
 nmap <C-p> :GFiles<cr>
 let g:fzf_layout = { 'down': '~40%' }
 
-let g:prettier#autoformat = 1
+" let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
@@ -91,13 +93,11 @@ endfunction
 
 
 " Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
+inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
+imap <M-8> <Plug>(copilot-previous)
+imap <M-9> <Plug>(copilot-next)
