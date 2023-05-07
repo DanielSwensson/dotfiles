@@ -4,7 +4,6 @@ return require('packer').startup(function(use)
 
   use 'tpope/vim-fugitive'
   use 'jremmen/vim-ripgrep'
-  use 'github/copilot.vim'
   use 'christoomey/vim-tmux-navigator'
   use 'nvim-lualine/lualine.nvim'
   use 'nvim-tree/nvim-web-devicons'
@@ -30,5 +29,34 @@ return require('packer').startup(function(use)
     end,
   }
   use 'nvim-treesitter/nvim-treesitter-context'
+  use {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      })
+    end,
+  }
+  use {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function ()
+      require("copilot_cmp").setup()
+    end
+  }
+  use {
+    "folke/trouble.nvim",
+    requires = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
 end)
 
