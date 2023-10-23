@@ -4,7 +4,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'solargraph', 'tsserver' }
+local servers = { 'solargraph', 'tsserver', 'rust_analyzer' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     -- on_attach = my_custom_on_attach,
@@ -21,6 +21,8 @@ local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_text(0, line-1, 0, line-1, col, {})[1]:match("^%s*$") == nil
 end
+
+local lspkind = require('lspkind')
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
@@ -59,6 +61,21 @@ cmp.setup {
   sources = {
     { name = 'copilot' },
     { name = 'nvim_lsp' },
+    { name = 'buffer', keyword_length = 3 },
     { name = 'luasnip' },
+  },
+  formatting = {
+    fields = {'abbr', 'kind', 'menu'},
+    format = lspkind.cmp_format({
+      mode = "symbol_text",
+      menu = ({
+        buffer = "[Buffer]",
+        nvim_lsp = "[LSP]",
+        luasnip = "[LuaSnip]",
+        nvim_lua = "[Lua]",
+        latex_symbols = "[Latex]",
+        copilot = "[Copilot]",
+      })
+    }),
   },
 }

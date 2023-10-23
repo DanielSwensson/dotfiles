@@ -16,3 +16,5 @@ set.cursorline = true
 set.mouse = "a"
 
 set.background = "dark"
+
+set.wrap = false
